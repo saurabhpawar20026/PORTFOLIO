@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saurabh Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<style>
+    /* 1. Universal Charcoal Background */
+    body {
+        background-color: #1a1a1a; /* Exact Charcoal color from Screenshot */
+        color: #e6f1ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    /* 2. Hero Section Layout */
+    .hero-main {
+        padding: 100px 10% 50px 10%;
+        text-align: left;
+    }
+
+    /* 3. Name Styling */
+    .hero-main h1 {
+        font-size: 60px; /* Large professional font */
+        color: #e6f1ff;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+
+    /* 4. Typing Animation Wrapper */
+    .hero-main h2 {
+        font-size: 30px;
+        color: #8892b0;
+        margin-top: 10px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Green Typing Text with Slide/Fade effect */
+    .typing-text {
+        color: #64ffda; /* Ritik's Accent Green */
+        border-right: 3px solid #64ffda; /* Blinking cursor */
+        padding-right: 5px;
+        margin-left: 10px;
+        animation: blink 0.7s infinite, slideText 4s infinite; /* Slide and Blink */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    @keyframes blink { 50% { border-color: transparent; } }
+    
+    /* Smooth Slide effect for text */
+    @keyframes slideText {
+        0%, 20% { width: 0; }
+        30%, 70% { width: 100%; }
+        80%, 100% { width: 0; }
+    }
+
+    /* 5. Navigation Menu below text */
+    .custom-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 30px 0 10px 0;
+        background: transparent;
+        margin-top: 20px;
+    }
+
+    .custom-nav a {
+        color: #8892b0;
+        text-decoration: none;
+        font-size: 15px;
+        font-family: monospace; /* Professional developer font */
+        font-weight: 400;
+        transition: 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .custom-nav a:hover {
+        color: #64ffda;
+        border-bottom: 2px solid #64ffda; /* Green underline on hover */
+    }
+
+    /* 6. Social Quick Links */
+    .hero-socials {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .hero-socials a {
+        font-size: 20px;
+        color: #ccd6f6;
+        text-decoration: none;
+        transition: 0.3s;
+        padding: 10px;
+        background: rgba(17, 34, 64, 0.5); /* Semi-transparent background */
+        border-radius: 50%;
+    }
+
+    .hero-socials a:hover {
+        color: #64ffda;
+        transform: translateY(-3px);
+    }
+</style>
+
+<section class="hero-main" id="home">
+    <h1>SAURABH GAGDE</h1>
+    <h2>I'm <span class="typing-text" id="type-effect">Developer.</span></h2>
+    
+    <nav class="custom-nav">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#connect">Contact</a>
+    </nav>
+
+    <div class="hero-socials">
+        <a href="https://linkedin.com/in/saurabh-pawar-026" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/saurabhpawar20026" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:saurabhgagde1@gmail.com"><i class="far fa-envelope"></i></a>
+    </div>
+</section>
+
+<script>
+    const textArray = ["Developer.", "Coder.", "MCA Student.", "Placement Coordinator."];
+    let textIndex = 0;
+    const typeElement = document.getElementById("type-effect");
+
+    function changeText() {
+        // Easing effect by changing text content before the slide animation restarts
+        typeElement.textContent = textArray[textIndex];
+        textIndex = (textIndex + 1) % textArray.length;
+    }
+
+    // Run the text change every 4 seconds (matching CSS slide animation)
+    setInterval(changeText, 4000);
+</script>
+</section>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurabh Gagde | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212; /* Charcoal */
+            --card-bg: #1c1c1c;
+            --text-main: #e6f1ff;
+            --text-sub: #8892b0;
+            --accent: #64ffda;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        
+        section { padding: 60px 10%; }
+        .section-title { font-size: 28px; color: var(--text-main); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 3px; position: relative; display: inline-block; }
+        .section-title::after { content: ""; position: absolute; bottom: -5px; left: 0; width: 60%; height: 3px; background: var(--accent); }
+
+        .about-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; }
+        
+        .profile-img { 
+            width: 320px; 
+            height: 420px; 
+            object-fit: cover; 
+            border-radius: 8px;
+            filter: grayscale(30%);
+            border: 2px solid var(--accent);
+            box-shadow: 15px 15px 0px rgba(100, 255, 218, 0.1);
+            transition: 0.4s;
+        }
+        .profile-img:hover { filter: grayscale(0%); transform: scale(1.02); }
+
+        .about-info { flex: 1; min-width: 350px; }
+        .about-info p { font-size: 18px; color: var(--text-sub); margin-bottom: 25px; text-align: justify; }
+
+        .personal-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: var(--card-bg); padding: 25px; border-radius: 8px; border: 1px solid #222; }
+        .detail-item { font-size: 15px; color: var(--text-main); display: flex; align-items: center; }
+        .detail-item i { color: var(--accent); margin-right: 12px; font-size: 14px; }
+
+        .interest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; }
+        .interest-card { 
+            background: linear-gradient(145deg, #1c1c1c, #161616);
+            padding: 20px; 
+            border-radius: 6px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+            transition: 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+        .interest-card:hover { border-color: var(--accent); background: #1f1f1f; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .interest-card i { color: var(--accent); font-size: 22px; }
+        .interest-card span { font-weight: 600; font-size: 14px; color: var(--text-main); }
+    </style>
+</head>
+<body>
+
+    <section id="about">
+        <h3 class="section-title">About Me</h3>
+        <div class="about-container">
+            <img src="saurabhgagde.jpeg" alt="Saurabh Gagde" class="profile-img">
+
+            <div class="about-info">
+                <p>
+                    I am a forward-thinking <strong>Master of Computer Applications (MCA)</strong> student at <strong>JEC</strong> [cite: 5], specialized in architecting intelligent systems through <strong>Machine Learning</strong> and <strong>Big Data</strong> processing[cite: 10, 13]. Beyond just writing code, I thrive in leadership roles—having orchestrated end-to-end recruitment logistics for <strong>Infosys</strong> as a Placement Coordinator[cite: 20, 26]. My focus lies at the intersection of complex algorithm design and user-centric software engineering.
+                </p>
+                
+                <div class="personal-details">
+                    <div class="detail-item"><i class="fas fa-calendar-alt"></i> 21 April 2002</div>
+                    <div class="detail-item"><i class="fas fa-map-marker-alt"></i> Jabalpur, MP</div>
+                    <div class="detail-item"><i class="fas fa-phone-alt"></i> +91 6260222827</div>
+                    <div class="detail-item"><i class="fas fa-envelope"></i> saurabhgagde1@gmail.com</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 80px;">Core Interests</h3>
+        <div class="interest-grid">
+            <div class="interest-card"><i class="fas fa-terminal"></i><span>Software Development</span></div>
+            <div class="interest-card"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+            <div class="interest-card"><i class="fas fa-eye"></i><span>Computer Vision</span></div>
+            <div class="interest-card"><i class="fas fa-comments"></i><span>Natural Language Processing</span></div>
+            <div class="interest-card"><i class="fas fa-project-diagram"></i><span>Software Engineering</span></div>
+            <div class="interest-card"><i class="fas fa-chart-line"></i><span>Visualization</span></div>
+            <div class="interest-card"><i class="fas fa-microchip"></i><span>Algorithms</span></div>
+            <div class="interest-card"><i class="fas fa-camera"></i><span>Image Processing</span></div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+     
+
+</body>
+</html>
+<style>
+    .edu-section { padding: 80px 10%; background-color: #121212; color: #e6f1ff; }
+    .section-title { font-size: 28px; color: #e6f1ff; text-transform: uppercase; letter-spacing: 3px; position: relative; display: inline-block; margin-bottom: 40px; }
+    .section-title::after { content: ""; position: absolute; bottom: -5px; left: 0; width: 60%; height: 3px; background: #64ffda; }
+
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+    .edu-card { background: #112240; border-radius: 12px; overflow: hidden; border: 1px solid #233554; transition: all 0.3s ease; }
+    .edu-card:hover { transform: translateY(-10px); border-color: #64ffda; box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7); }
+    
+    .logo-box { background: #ffffff; height: 200px; display: flex; align-items: center; justify-content: center; padding: 30px; }
+    .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    
+    .edu-info { padding: 30px; }
+    .edu-info h4 { color: #64ffda; font-size: 14px; font-family: monospace; margin-bottom: 10px; }
+    .edu-info h2 { font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+    .edu-info .date { color: #8892b0; font-size: 15px; margin-bottom: 20px; display: block; }
+    
+    .course-list { list-style: none; margin-top: 15px; }
+    .course-list li { color: #8892b0; font-size: 14px; margin-bottom: 8px; padding-left: 25px; position: relative; }
+    .course-list li::before { content: "▹"; color: #64ffda; position: absolute; left: 0; font-size: 18px; }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; margin-top: 50px; }
+    .cert-card { background: #ffffff; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 20px; transition: 0.3s; border: 2px solid transparent; }
+    .cert-card:hover { transform: scale(1.05); border-color: #64ffda; }
+    .cert-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
+</style>
+
+<section id="education" class="edu-section">
+    <h3 class="section-title">Education</h3>
+    
+    <div class="edu-grid">
+        <div class="edu-card">
+            <div class="logo-box">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/29/Jabalpur_Engineering_College_logo.png" alt="JEC Logo">
+            </div>
+            <div class="edu-info">
+                <h4>Master of Computer Application</h4>
+                <h2>Jabalpur Engineering College</h2>
+                <span class="date">July 2024 - Present</span>
+                <p style="color: #ccd6f6; font-weight: 600;">Relevant Coursework:</p>
+                <ul class="course-list">
+                    <li>Artificial Intelligence & Machine Learning</li>
+                    <li>Analysis of Algorithms</li>
+                    <li>Cloud Computing</li>
+                    <li>Big Data Processing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="edu-card">
+            <div class="logo-box">
+                <img src="https://www.vectorlogo.zone/logos/google_google_cloud_platform/google_google_cloud_platform-icon.svg" style="display:none;">
+                <img src="https://img.icons8.com/fluency/144/university.png" alt="College Logo">
+            </div>
+            <div class="edu-info">
+                <h4>Bachelor of Computer Science (IT)</h4>
+                <h2>Danielson Degree College</h2>
+                <span class="date">July 2021 - June 2024</span>
+                <p style="color: #ccd6f6; font-weight: 600;">Relevant Coursework:</p>
+                <ul class="course-list">
+                    <li>Data Structures & Algorithms</li>
+                    <li>Operating Systems</li>
+                    <li>Database Management Systems</li>
+                    <li>Software Engineering</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="section-title" style="margin-top: 100px;">Online Certifications</h3>
+    <div class="cert-grid">
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="LinkedIn">
+        </div>
+        
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="Google">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/cisco/cisco-official.svg" alt="Cisco">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/linux/linux-icon.svg" alt="Linux">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/hackerrank/hackerrank-icon.svg" alt="HackerRank">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java">
+        </div>
+
+        <div class="cert-card">
+            <img src="https://files.codingninjas.in/0000000000000723.png" alt="Coding Ninjas">
+        </div>
+    </div>
+</section>
+     
+
+<!-- EXPERIENCE -->
+<style>
+    .exp-section { padding: 80px 10%; background-color: #121212; color: #e6f1ff; }
+    .exp-container { margin-top: 40px; position: relative; padding-left: 20px; border-left: 2px solid #233554; }
+    
+    .exp-item { margin-bottom: 50px; position: relative; }
+    .exp-item::before { 
+        content: ""; position: absolute; left: -29px; top: 5px; 
+        width: 15px; height: 15px; background: #64ffda; border-radius: 50%; 
+        border: 4px solid #121212;
+    }
+
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
+    .exp-header h3 { font-size: 22px; color: #e6f1ff; margin: 0; }
+    .exp-header .company { color: #64ffda; font-size: 18px; font-weight: 600; }
+    .exp-header .duration { color: #8892b0; font-family: monospace; font-size: 14px; }
+
+    .exp-content ul { list-style: none; padding: 0; margin-top: 15px; }
+    .exp-content li { color: #8892b0; font-size: 16px; margin-bottom: 10px; padding-left: 25px; position: relative; }
+    .exp-content li::before { content: "▹"; color: #64ffda; position: absolute; left: 0; font-size: 18px; }
+</style>
+
+<section id="experience" class="exp-section">
+    <h3 class="section-title">Experience</h3>
+    
+    <div class="exp-container">
+        <div class="exp-item">
+            <div class="exp-header">
+                <h3>Placement Coordinator</h3>
+                <span class="company">@ Jabalpur Engineering College</span>
+                <span class="duration">Aug 2025 - Present</span>
+            </div>
+            <div class="exp-content">
+                <ul>
+                    <li>Leading the placement cell for MCA department, acting as a bridge between 200+ students and corporate recruiters.</li>
+                    <li>Successfully managed and orchestrated the <strong>Infosys Recruitment Drive (Oct 2025)</strong>, handling end-to-end logistics and candidate coordination.</li>
+                    <li>Developed automated tracking systems for student eligibility and interview scheduling, reducing manual effort by 40%.</li>
+                    <li>Collaborating with top-tier IT companies to organize seminars, technical workshops, and mock interview sessions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-header">
+                <h3>Open Source Contributor & Developer</h3>
+                <span class="company">@ Self-Employed / GitHub</span>
+                <span class="duration">2024 - Present</span>
+            </div>
+            <div class="exp-content">
+                <ul>
+                    <li>Architecting and maintaining full-stack applications using <strong>Python (Django/Streamlit)</strong> and <strong>Machine Learning</strong> frameworks.</li>
+                    <li>Built a real-time <strong>AI Health Assistant</strong> and <strong>Sentiment Analytics Dashboard</strong>, focusing on scalable data processing.</li>
+                    <li>Actively optimizing algorithms for Big Data projects, ensuring efficient performance in data-heavy environments.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<style>
+    .proj-section { padding: 80px 10%; background-color: #0a192f; color: #ccd6f6; }
+    .proj-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 25px; 
+        margin-top: 40px; 
+    }
+    .proj-card { 
+        background: #112240; 
+        border-radius: 10px; 
+        overflow: hidden; 
+        text-align: center;
+        transition: 0.3s;
+        border: 1px solid #233554;
+    }
+    .proj-card:hover { transform: translateY(-10px); border-color: #64ffda; }
+    
+    /* Image Box Design */
+    .proj-img-box { 
+        width: 100%; 
+        height: 180px; 
+        overflow: hidden; 
+        background: #1d2d50;
+    }
+    .proj-img-box img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: 0.5s;
+    }
+    .proj-card:hover .proj-img-box img { transform: scale(1.1); }
+    
+    .proj-info { padding: 20px; }
+    .proj-info h3 { 
+        font-size: 18px; 
+        color: #e6f1ff; 
+        margin-bottom: 10px; 
+        font-weight: 600;
+    }
+    .proj-info p { font-size: 14px; color: #8892b0; margin-bottom: 15px; }
+</style>
+
+<section id="projects" class="proj-section">
+    <h3 class="section-title">My Projects</h3>
+    
+    <div class="proj-grid">
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/hiring-agency-candidates-job-interview_1262-18917.jpg" alt="Job Rec">
+            </div>
+            <div class="proj-info">
+                <h3>Job & Career Recommendation</h3>
+                <p>ML-based system to suggest career paths based on skills.</p>
+            </div>
+        </div>
+
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg" alt="Health Assistant">
+            </div>
+            <div class="proj-info">
+                <h3>AI Health Assistant</h3>
+                <p>Streamlit app for real-time health metrics analysis.</p>
+            </div>
+        </div>
+
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/sentiment-analysis-concept-illustration_114360-5182.jpg" alt="Sentiment">
+            </div>
+            <div class="proj-info">
+                <h3>Sentiment Analytics Dashboard</h3>
+                <p>NLP-based tool for analyzing public feedback.</p>
+            </div>
+        </div>
+
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/modern-blue-sports-car_1262-19266.jpg" alt="Car Web">
+            </div>
+            <div class="proj-info">
+                <h3>Car Selling Marketplace</h3>
+                <p>Full-stack web portal for car listings and sales.</p>
+            </div>
+        </div>
+
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/recruitment-agency-searching-job-candidates_1262-18871.jpg" alt="Interview">
+            </div>
+            <div class="proj-info">
+                <h3>AI Interview Simulator</h3>
+                <p>Platform to practice technical interviews with AI.</p>
+            </div>
+        </div>
+
+        <div class="proj-card">
+            <div class="proj-img-box">
+                <img src="https://img.freepik.com/free-vector/online-exam-concept-illustration_114360-5003.jpg" alt="Exam Tool">
+            </div>
+            <div class="proj-info">
+                <h3>Exam Practice Assistant</h3>
+                <p>A specialized tool for competitive exam preparations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+      
+<!-- SKILLS -->
+<style>
+    .skills-section { padding: 80px 10%; background-color: #0a192f; }
+    .skill-category { 
+        background: #ffffff; 
+        border-radius: 8px; 
+        padding: 30px; 
+        margin-bottom: 30px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .skill-category h3 { 
+        color: #0a192f; 
+        font-size: 24px; 
+        margin-bottom: 25px; 
+        border-bottom: 2px solid #64ffda;
+        display: inline-block;
+    }
+    .logo-container { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 30px; 
+        align-items: center; 
+    }
+    .skill-logo { 
+        height: 45px; 
+        transition: 0.3s; 
+        filter: grayscale(20%);
+    }
+    .skill-logo:hover { 
+        transform: scale(1.1); 
+        filter: grayscale(0%);
+    }
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+        .logo-container { gap: 20px; justify-content: center; }
+        .skill-logo { height: 35px; }
+    }
+</style>
+
+<section id="skills" class="skills-section">
+    <h2 class="section-title" style="color: #e6f1ff; margin-bottom: 50px;">Skills</h2>
+
+    <div class="skill-category">
+        <h3>Languages and Databases</h3>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" class="skill-logo" alt="Python">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" class="skill-logo" alt="Java">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" class="skill-logo" alt="HTML5">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" class="skill-logo" alt="CSS3">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" class="skill-logo" alt="MySQL">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" class="skill-logo" alt="PostgreSQL">
+        </div>
+    </div>
+
+    <div class="skill-category">
+        <h3>Frameworks and Libraries</h3>
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain-wordmark.svg" class="skill-logo" alt="Django">
+            <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-ar21.svg" class="skill-logo" alt="TensorFlow">
+            <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-ar21.svg" class="skill-logo" alt="PyTorch">
+            <img src="https://www.vectorlogo.zone/logos/opencv/opencv-ar21.svg" class="skill-logo" alt="OpenCV">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" class="skill-logo" alt="Scikit-learn">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original-wordmark.svg" class="skill-logo" alt="Pandas">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original-wordmark.svg" class="skill-logo" alt="NumPy">
+        </div>
+    </div>
+
+    <div class="skill-category">
+        <h3>Tools</h3>
+        <div class="logo-container">
+            <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg" class="skill-logo" alt="Git">
+            <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg" class="skill-logo" alt="AWS">
+            <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-ar21.svg" class="skill-logo" alt="Google Cloud">
+            <img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-ar21.svg" class="skill-logo" alt="Jupyter">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" class="skill-logo" alt="Linux">
+        </div>
+    </div>
+</section>
+
+<!-- RESUME -->
+<style>
+    .resume-section { 
+        padding: 100px 10%; 
+        background-color: #121212; 
+        text-align: center; 
+        border-top: 1px solid #233554;
+    }
+    .resume-container {
+        background: #112240;
+        padding: 60px 40px;
+        border-radius: 12px;
+        border: 1px solid #233554;
+        max-width: 800px;
+        margin: 0 auto;
+        transition: 0.3s;
+    }
+    .resume-container:hover {
+        border-color: #64ffda;
+        box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+    }
+    .resume-container h2 {
+        color: #e6f1ff;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .resume-container p {
+        color: #8892b0;
+        font-size: 18px;
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+    .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 18px 35px;
+        background: transparent;
+        color: #64ffda;
+        border: 2px solid #64ffda;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .download-btn:hover {
+        background: rgba(100, 255, 218, 0.1);
+        transform: translateY(-5px);
+    }
+    .download-btn i {
+        font-size: 20px;
+    }
+</style>
+
+<section id="resume" class="resume-section">
+    <div class="resume-container">
+        <h2>Ready to collaborate?</h2>
+        <p>You can view my up-to-date resume and know details of my technical journey, projects and academic achievements by clicking on the button below...  ..SAURABH GAGDE..      </p>
+        
+        <a href="SAURABH.RESUME (1).pdf" class="download-btn" target="_blank">
+            <i class="fas fa-file-pdf"></i> View Full Resume
+        </a>
+    </div>
+</section>
+
+<!-- MORE INFORMATION ABOUT ME -->
+<style>
+    .contact-modified { 
+        padding: 80px 10%; 
+        background-color: #0a192f; 
+        text-align: center;
+    }
+    .connect-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .connect-card {
+        background: #112240;
+        padding: 30px;
+        border-radius: 10px;
+        border: 1px solid #233554;
+        transition: 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .connect-card:hover {
+        transform: translateY(-10px);
+        border-color: #64ffda;
+        background: rgba(100, 255, 218, 0.05);
+    }
+    .connect-card i {
+        font-size: 35px;
+        color: #64ffda;
+    }
+    .connect-card span {
+        color: #e6f1ff;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: monospace;
+    }
+    .connect-card small {
+        color: #8892b0;
+        font-size: 13px;
+    }
+    .section-title-alt {
+        font-size: 28px;
+        color: #e6f1ff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<section id="connect" class="contact-modified">
+    <h2 class="section-title-alt">Get In Touch</h2>
+    <p style="color: #8892b0;">Let's connect across platforms!</p>
+
+    <div class="connect-grid">
+        <a href="https://wa.me/916260222827" target="_blank" class="connect-card">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+            <small>+91 6260222827</small>
+        </a>
+
+        <a href="https://linkedin.com/in/saurabh-pawar-026" target="_blank" class="connect-card">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+            <small>https://linkedin.com/in/saurabh-pawar-026</small>
+        </a>
+
+        <a href="https://github.com/saurabhpawar20026" target="_blank" class="connect-card">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+            <small>https://github.com/saurabhpawar20026</small>
+        </a>
+
+        <a href="https://instagram.com/saurabh_pawar_026" target="_blank" class="connect-card">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+            <small>https://www.instagram.com/saurabhpawar9999?igsh=MTY4enN5MTV0bGJjNQ==</small>
+        </a>
+
+        <a href="mailto:saurabhgagde1@gmail.com" class="connect-card">
+            <i class="far fa-envelope"></i>
+            <span>Email</span>
+            <small>saurabhgagde1@gmail.com</small>
+        </a>
+
+        <div class="connect-card">
+            <i class="fas fa-phone-alt"></i>
+            <span>Call Me</span>
+            <small>+91 6260222827</small>
+        </div>
+    </div>
+</section>      
+
+<!-- CONTACT -->
+<style>
+    .footer { 
+        padding: 50px 0; 
+        background: #0a192f; 
+        text-align: center; 
+        color: #8892b0; 
+        font-family: monospace; 
+    }
+    .social-icons { margin-bottom: 20px; }
+    .social-icons a { 
+        color: #ccd6f6; 
+        font-size: 22px; 
+        margin: 0 15px; 
+        transition: 0.3s; 
+    }
+    .social-icons a:hover { color: #64ffda; transform: translateY(-3px); }
+</style>
+
+<footer class="footer">
+    <div class="social-icons">
+        <a href="https://github.com/saurabhpawar20026" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/saurabh-pawar-026" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:saurabhgagde1@gmail.com"><i class="far fa-envelope"></i></a>
+    </div>
+    <p>Designed & Built by SAURABH GAGDE © 2026</p>
+  <P>THE CODER & THE DEVELOPER</P>
+    <p style="font-size: 12px; margin-top: 10px; color: #64ffda;">JEC Jabalpur | MCA 2024-2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
